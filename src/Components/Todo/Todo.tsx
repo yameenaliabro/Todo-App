@@ -65,7 +65,6 @@ function Todo(){
           alignContent:"center",
           alignItems:"center",
           height:50,
-          backgroundColor:"#5D6D7E",
         }}>
       <Input
          style={{ width: "calc(30% - 200px)" }} 
