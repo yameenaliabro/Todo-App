@@ -11,7 +11,6 @@ function Todo(){
   const [newTodoTitle, setNewTodoTitle] = useState("");
   const [editingTodoId, setEditingTodoId] = useState<number | null>(null);
   const [editingTodoTitle, setEditingTodoTitle] = useState("");
-  const [modal,setmodal] = useState<boolean>(false)
   const addTodo = () => {
     if (newTodoTitle === "") {
     message.error("please enter a todo list")
@@ -45,7 +44,6 @@ function Todo(){
     setTodos(updatedTodos);
     setEditingTodoId(null);
     setEditingTodoTitle("");
-    setmodal(true)
     message.success("todo edit successful")
   };
   function handleTodoClick(todoId:number) {
@@ -58,9 +56,6 @@ function Todo(){
       })
     ));
   }
-  let oncancel = ()=>{
-    setmodal(false)
-  }
   return (
     <div style={{}}>
         <Divider/>
@@ -70,9 +65,10 @@ function Todo(){
           alignContent:"center",
           alignItems:"center",
           height:50,
+          backgroundColor:"#5D6D7E",
         }}>
       <Input
-         style={{ width: "calc(60% - 200px)" }}
+         style={{ width: "calc(30% - 200px)" }} 
         value={newTodoTitle}
         onChange={(event) => setNewTodoTitle(event.target.value)}
         placeholder="Enter a new todo item"
@@ -81,15 +77,8 @@ function Todo(){
         Add
       </Button>
       </Input.Group>
+      <div className="middle-container">
       <List  
-      style={{
-        display:"flex",
-        alignContent:"center",
-        justifyContent:"center",
-        alignItems:"center",
-        textAlign:"center",
-        marginTop:50
-      }}
         dataSource={todos}
         header
         renderItem={(todo) =>
@@ -114,8 +103,7 @@ function Todo(){
             <div className="main">
             <List.Item>
               {todo.completed ? (
-                <del style={{
-                }}>{todo.title}</del>
+                <del>{todo.title}</del>
               ) : (
                 <Checkbox type="checkbox"  checked={todo.completed} onChange={() => handleTodoClick(todo.id)} style={{
                   color:"#fff"
@@ -130,6 +118,7 @@ function Todo(){
           )
         }
       />
+      </div>
     </div>
   );
 };
