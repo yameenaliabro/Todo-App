@@ -1,0 +1,12 @@
+.main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: 120%;
+  background-color: #5D6D7E;
+}
+.button-set button{
+    margin-right: 40px;
+}

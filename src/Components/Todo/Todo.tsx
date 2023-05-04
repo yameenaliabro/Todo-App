@@ -111,16 +111,8 @@ function Todo(){
             </List.Item>
             </Modal>
           ) : (
-            <List.Item style={{
-              display:'flex',
-              flexDirection:"row",
-              justifyContent:"center",
-              alignContent:"center",
-              textAlign:"center",
-              width:300,
-              backgroundColor:"#5D6D7E",
-              color:"#fff",
-            }}>
+            <div className="main">
+            <List.Item>
               {todo.completed ? (
                 <del style={{
                 }}>{todo.title}</del>
@@ -130,12 +122,11 @@ function Todo(){
                 }}>{todo.title}</Checkbox>
               )}
               <div className="button-set">
-              <Button onClick={() => setEditingTodoId(todo.id)} disabled={todo.completed} type="primary" style={{
-              marginRight:40,
-              }}>Edit</Button>
+              <Button onClick={() => setEditingTodoId(todo.id)} disabled={todo.completed} type="primary" >Edit</Button>
               <Button onClick={() => deleteTodo(todo.id)} type="primary" danger>Delete</Button>
               </div>
             </List.Item>
+            </div>
           )
         }
       />
