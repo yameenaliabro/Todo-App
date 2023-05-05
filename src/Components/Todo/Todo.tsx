@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button, Checkbox, Divider, Input, List, Modal, message,Typography} from "antd";
 import "./Todo.css"
-import Title from "antd/es/skeleton/Title";
 type Todotype = {
   id: number;
   title: string;
