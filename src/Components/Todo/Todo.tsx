@@ -25,7 +25,6 @@ function Todo(){
     setTodos([...todos, newTodo]);
     setNewTodoTitle("");
   };
-
   const deleteTodo = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
     message.success("todo deleed successful")
@@ -83,19 +82,20 @@ function Todo(){
         header
         renderItem={(todo) =>
           editingTodoId === todo.id ? (
-            <Modal open={true}     footer={[
+            <Modal open={true}    title="Enter Todo Here" footer={[
               <Button onClick={() => editTodo(todo.id, editingTodoTitle)} type="primary">
               Save
             </Button>,
               <Button onClick={() => setEditingTodoId(null)} type="primary" danger>Cancel</Button>
             ]}>
             <List.Item style={{
-              marginTop:50
+              marginTop:50,
             }}>
               <Input
                 value={editingTodoTitle}
                 onChange={(event) => setEditingTodoTitle(event.target.value)}
                 onPressEnter={() => editTodo(todo.id, editingTodoTitle)}
+                placeholder="Enter  Todo"
               />
             </List.Item>
             </Modal>
