@@ -1,11 +1,25 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
 .main{
     display:flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    width: 100%;
-  background-color: #5D6D7E;
+    width: 550px;
+    height:  700px;
+    background-color: #33475b;
+   color: #fff;
+}
+.button{
+    width: 80px;
+    height: 40px;
+
+}
+.set-heading{
+    color: #fff;
 }
 .button-set button{
     margin-right: 40px;
@@ -17,6 +31,7 @@
    align-items: center;
    text-align: center;
    margin-top: 10px;
+   margin-bottom: 20px;
 }
 .main del{
     color: #fff;

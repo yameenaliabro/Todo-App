@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Button, Checkbox, Divider, Input, List, Modal, message} from "antd";
+import { Button, Checkbox, Divider, Input, List, Modal, message,Typography} from "antd";
 import "./Todo.css"
+import Title from "antd/es/skeleton/Title";
 type Todotype = {
   id: number;
   title: string;
   completed: boolean;
 };
 function Todo(){
+  const {Title} = Typography
   const [todos, setTodos] = useState<Todotype[]>([]);
   const [newTodoTitle, setNewTodoTitle] = useState("");
   const [editingTodoId, setEditingTodoId] = useState<number | null>(null);
@@ -57,22 +59,22 @@ function Todo(){
     ));
   }
   return (
-    <div style={{}}>
+    <div className="container">
+      <div className="main">
+      <div className="set-heading">
+        <Title level={1} style={{
+          color:"#fff"
+        }}>Todo App</Title>
+      </div>
         <Divider/>
-        <Input.Group compact style={{
-          display:'flex',
-          justifyContent:'center',
-          alignContent:"center",
-          alignItems:"center",
-          height:50,
-        }}>
-      <Input
-         style={{ width: "calc(30% - 200px)" }} 
+        <Input.Group compact>
+      <Input size="large"
+         style={{ width: "calc(80% - 200px)" }} 
         value={newTodoTitle}
         onChange={(event) => setNewTodoTitle(event.target.value)}
         placeholder="Enter a new todo item"
       />
-      <Button type="primary" onClick={addTodo}>
+      <Button type="primary" onClick={addTodo} className="button">
         Add
       </Button>
       </Input.Group>
@@ -99,7 +101,6 @@ function Todo(){
             </List.Item>
             </Modal>
           ) : (
-            <div className="main">
             <List.Item>
               {todo.completed ? (
                 <del>{todo.title}</del>
@@ -113,10 +114,10 @@ function Todo(){
               <Button onClick={() => deleteTodo(todo.id)} type="primary" danger>Delete</Button>
               </div>
             </List.Item>
-            </div>
           )
         }
       />
+      </div>
       </div>
     </div>
   );
