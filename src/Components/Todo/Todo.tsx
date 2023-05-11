@@ -100,12 +100,22 @@ function Todo(){
             </List.Item>
             </Modal>
           ) : (
-            <List.Item>
+            <List.Item style={{
+              display:"flex",
+              justifyContent:"center",
+              flexWrap:"wrap",
+              flexDirection:"row",              
+            }}>
               {todo.completed ? (
                 <del>{todo.title}</del>
               ) : (
-                <Checkbox type="checkbox"  checked={todo.completed} onChange={() => handleTodoClick(todo.id)} style={{
-                  color:"#fff"
+                <Checkbox type="checkbox"  className={`check ${todo.completed} ? acive : reject `} checked={todo.completed} 
+                onChange={() =>
+                   handleTodoClick(todo.id)} style={{
+                  color:"#fff",
+                  wordBreak:"break-word",
+                  wordWrap:"break-word"
+                  
                 }}>{todo.title}</Checkbox>
               )}
               <div className="button-set">
